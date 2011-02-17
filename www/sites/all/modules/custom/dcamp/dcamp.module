@@ -1,0 +1,45 @@
+<?php
+/**
+ * Implementation of hook_block().
+ *
+ * Essentially emulates the clickable site logo, but exposes it in a block
+ * allowing it to be displayed in different regions / contexts.
+ *
+ * Active theme needs to have its logo_path set, but the 'Logo' option
+ * should not be selected.
+ */
+function dcamp_block($op = 'list', $delta = 0, $edit = array()) {
+  switch ($op) {
+
+    case 'list':
+      $blocks['dcamp-logo']['info'] = t('[DCAMP] Clickable site logo');
+      return $blocks;
+
+    case 'view':
+      if ($delta == 'dcamp-logo') {
+        $block['subject'] = '<none>';
+        $block['content'] = dcamp_block_get_content($delta);
+      }
+      
+      return $block;
+  }    
+}
+
+/**
+ * Provides content for the above hook_block implementation.
+ */
+function dcamp_block_get_content($delta){
+  $output = '';
+  switch ($delta) {
+    case 'dcamp-logo':
+      // grab logo path from theme settings
+      // build path to image
+      // display + link to frontpage
+      global $theme_key;
+      $theme_settings = variable_get("theme_" . $theme_key . "_settings", array());
+      $img = theme('image', $theme_settings['logo_path']);
+      $output = l($img, '<front>', array('html' => TRUE, 'attributes' => array('id' => 'logo', 'rel' => 'home')));
+      break;
+  }
+  return $output;
+}
