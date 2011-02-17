@@ -1,0 +1,105 @@
+body {
+  background: #ddd;
+  background-image: -moz-linear-gradient(10%, #ddd, #aaa);
+  font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  font-weight: 200;
+}
+
+#topSocial {
+ float: right;
+ position: static;
+}
+
+#topSocial ul li a.twitter,
+#topSocial ul li a.twitter:hover 
+{
+  background: url(../images/twitter.png) 0 9px no-repeat;
+}
+
+#topSocial ul li a.facebook,
+#topSocial ul li a.facebook:hover
+{
+  background: url(../images/facebook.png) 0 9px no-repeat;
+}
+
+#topSocial ul li a.rss,
+#topSocial ul li a.rss:hover
+{
+  background: url(../images/rss.png) 0 9px no-repeat;
+}
+
+#topSocial ul li a:hover {
+  opacity: 0.8;  
+}
+
+#mainWrapper {
+  background-image: none;
+}
+
+#nav {
+  background: #222;
+}
+
+#navWrapper {
+  margin: 0 auto;
+  width: 960px;
+}
+
+#topMenu {
+  letter-spacing: 0.6px;
+  overflow: hidden; /* fix float container height bug */
+  position: static;
+}
+
+#topMenu ul.primary-links li a {
+  color: #f7eb31;
+}
+
+#topMenu ul.primary-links li a:hover,
+#topMenu ul.primary-links li a.active
+{
+  background: #f7eb31;
+  color: #333;
+  text-shadow: 2px 2px 2px #ccc;
+}
+
+#header #logo {
+  float: left;
+  margin-top: 35px;
+  padding-left: 33px;
+  padding-right: 64px;
+  position: static;
+}
+
+#header .block {
+  padding-top: 35px;
+}
+
+#header .block .content {
+  overflow: auto;  
+}
+
+#header .block .event {
+  background: rgba(255, 255, 51, 0.2);
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  float: left;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  width: 277px;
+}
+
+#header .block .event-date {
+  font-weight: bold;
+}
+
+#content {
+  margin-top: 35px;
+}
+
+#content .nodeInner {
+  -moz-border-radius: 0;
+}
+
+
+
