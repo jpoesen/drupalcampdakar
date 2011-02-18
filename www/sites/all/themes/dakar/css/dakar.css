@@ -84,6 +84,8 @@ body {
   overflow: auto;  
 }
 
+/* --- BLOCKS --- */
+
 #block-dcamp-dcamp-logo {
   float: left;  
 }
@@ -119,15 +121,6 @@ body {
   display: none;
 }
 
-#content {
-  margin-top: 35px;
-}
-
-#content .nodeInner {
-  -moz-border-radius: 4px;
-}
-
-
 #block-locale-0 {
 margin-bottom: 0;
 float: right;
@@ -141,3 +134,47 @@ margin-bottom: 0;
 padding: 0 3px;
 text-transform: uppercase;
 }
+
+/* --- FORMS / TABS --- */
+#content #colLeft ul.tabs {
+  border: none;
+  margin: 0 0 2em 0;
+  padding: 0;
+}
+
+ul.tabs li {
+  padding: 0;
+}
+
+ul.tabs li a,
+ul.tabs li a.active
+{
+  background: transparent;
+  border: none;
+  padding: 0.5em;
+}
+
+ul.tabs li a.active {
+  font-weight: bold;
+}
+
+input.form-text {
+  padding: 4px;
+  border-top: solid #aaa 1px;
+  border-right: solid #aaa 1px;
+  border-bottom: solid #ccc 1px;
+  border-left: solid #ccc 1px;
+}
+
+/* --- --- */
+
+#content {
+  margin-top: 35px;
+}
+
+#content .nodeInner {
+  -moz-border-radius: 4px;
+}
+
+
+
