@@ -1014,6 +1014,9 @@ function cod_session_views_default_views() {
     ),
   ));
   $handler->override_option('title', 'Accepted sessions');
+  $handler->override_option('footer', '<a href="/node/add/session">Propose a Session</a>');
+  $handler->override_option('footer_format', '1');
+  $handler->override_option('footer_empty', 1);
   $handler->override_option('empty', 'Sessions have not yet been accepted.');
   $handler->override_option('path', 'program/sessions/accepted');
   $handler->override_option('menu', array(
@@ -1810,6 +1813,9 @@ function cod_session_views_default_views() {
     ),
   ));
   $handler->override_option('title', 'Proposed Sessions');
+  $handler->override_option('footer', '<a href="/node/add/session">Propose a Session</a>');
+  $handler->override_option('footer_format', '2');
+  $handler->override_option('footer_empty', 1);
   $handler->override_option('path', 'program/sessions/proposed');
   $handler->override_option('menu', array(
     'type' => 'tab',
