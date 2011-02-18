@@ -171,6 +171,15 @@ input.form-text {
   border-left: solid #ccc 1px;
 }
 
+.views-exposed-form {
+  background: rgba(255, 255, 51, 0.2);
+  padding: 0.5em 1em;
+}
+
+.views-exposed-widget {
+  margin-right: 2em;
+}
+
 /* --- --- */
 
 #content {
