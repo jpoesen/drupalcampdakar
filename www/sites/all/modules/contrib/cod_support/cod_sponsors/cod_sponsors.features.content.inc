@@ -156,10 +156,9 @@ function cod_sponsors_content_default_fields() {
     'active' => '1',
     'text_processing' => '0',
     'max_length' => '',
-    'allowed_values' => 'Platinum
-Gold
-Silver
-Bronze',
+    'allowed_values' => 'com_part|Commercial Partner
+med_part|Media Partner
+uni_part|University Partner',
     'allowed_values_php' => '',
     'widget' => array(
       'default_value' => array(
