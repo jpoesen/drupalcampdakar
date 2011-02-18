@@ -26,7 +26,7 @@
 
         <div id="topSocial">
             <ul>
-            <li><a class="twitter tip" href="#" title="Follow Us on Twitter!"></a></li>
+            <li><a class="twitter tip" href="http://twitter.com/drupalcampsn" title="Follow Us on Twitter!"></a></li>
             <li><a class="facebook" href="#" title="Join Us on Facebook!"></a></li>
             <li><a class="rss" title="RSS" href="#" title="Subcribe to Our RSS Feed"></a></li>
             </ul>

@@ -102,4 +102,16 @@ body {
 }
 
 
+#block-locale-0 {
+margin-bottom: 0;
+float: right;
+}
 
+#block-locale-0 ul li {
+list-style-type: none;
+display: inline;
+font-size: 0.75em;
+margin-bottom: 0;
+padding: 0 3px;
+text-transform: uppercase;
+}
