@@ -49,38 +49,9 @@
 
     <!-- Header. -->
     <div id="header">
-    
-        <div id="logo">
-			<?php
-            // Prepare header
-            $site_fields = array();
-            if ($site_name) {
-            $site_fields[] = check_plain($site_name);
-            }
-            if ($site_slogan) {
-            $site_fields[] = check_plain($site_slogan);
-            }
-            $site_title = implode(' ', $site_fields);
-            if ($site_fields) {
-            $site_fields[0] = '<div>'. $site_fields[0] .'</div>';
-            }
-            $site_html = implode(' ', $site_fields);
-            
-            if ($logo || $site_title) {
-            print '<a href="'. check_url($front_page) .'" title="'. $site_title .'">';
-            if ($logo) {
-            print '<img src="'. check_url($logo) .'" alt="'. $site_title .'" />';
-            }
-            print $site_html .'</a>';
-            }
-            ?>
-        </div>
-        
-        <?php if (isset($header)):?>
-        <?php print $header;?>
-        <?php endif;?>
-
-      
+      <?php if (isset($header)):?>
+      <?php print $header;?>
+      <?php endif;?>
     </div><!-- EOF: #header -->
     
 	<!-- Content. -->

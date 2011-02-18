@@ -3,14 +3,14 @@
 /**
  * Implementation of hook_context_default_contexts().
  */
-function cod_front_page_context_default_contexts() {
+function dcamp_frontpage_context_default_contexts() {
   $export = array();
 
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
-  $context->name = 'context_ui-section-front';
-  $context->description = 'Front Page';
+  $context->name = 'dcamp_frontpage_context';
+  $context->description = '';
   $context->tag = '';
   $context->conditions = array(
     'path' => array(
@@ -22,21 +22,23 @@ function cod_front_page_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-news-block_1' => array(
-          'module' => 'views',
-          'delta' => 'news-block_1',
-          'region' => 'content',
+        'dcamp-dcamp-logo' => array(
+          'module' => 'dcamp',
+          'delta' => 'dcamp-logo',
+          'region' => 'header',
           'weight' => 0,
+        ),
+        'boxes-custom_box_event_list' => array(
+          'module' => 'boxes',
+          'delta' => 'custom_box_event_list',
+          'region' => 'header',
+          'weight' => 1,
         ),
       ),
     ),
   );
   $context->condition_mode = 0;
-
-  // Translatables
-  // Included for use with string extractors like potx.
-  t('Front Page');
-  $export['context_ui-section-front'] = $context;
+  $export['dcamp_frontpage_context'] = $context;
 
   return $export;
 }
