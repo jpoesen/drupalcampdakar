@@ -1,0 +1,3 @@
+<?php
+
+include_once('dcamp_boxes.features.inc');
