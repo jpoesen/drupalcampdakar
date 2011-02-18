@@ -3,7 +3,7 @@
 /**
  * Implementation of hook_default_box().
  */
-function dcamp_boxes_default_box() {
+function dcamp_frontpage_default_box() {
   $export = array();
 
   $box = new stdClass;
