@@ -1,6 +1,7 @@
 body {
   background: #ddd;
-  background-image: -moz-linear-gradient(10%, #ddd, #aaa);
+  xbackground-image: -moz-linear-gradient(10%, #ddd, #aaa);
+  border-top: solid #447a41 4px;
   font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
   font-weight: 200;
 }
@@ -63,6 +64,10 @@ body {
   text-shadow: 2px 2px 2px #ccc;
 }
 
+#header {
+  height: auto;
+}
+
 #header #logo {
   float: left;
   margin-top: 35px;
@@ -72,21 +77,41 @@ body {
 }
 
 #header .block {
-  padding-top: 35px;
+
 }
 
 #header .block .content {
   overflow: auto;  
 }
 
-#header .block .event {
+#block-dcamp-dcamp-logo {
+  float: left;  
+}
+
+#block-boxes-custom_box_event_list {
+  padding-top: 3em;  
+}
+
+#boxes-box-custom_box_event_list p {
   background: rgba(255, 255, 51, 0.2);
   border-radius: 4px;
   -moz-border-radius: 4px;
-  float: left;
-  margin-bottom: 1em;
+  margin: 0 0 1em 0;
   padding: 0.5em;
   width: 277px;
+}
+
+#boxes-box-custom_box_event_list p:hover {
+  -moz-box-shadow: 0px 0px 4px #ddd;
+}
+
+#boxes-box-custom_box_event_list a {
+  color: #32932d;
+
+}
+
+#boxes-box-custom_box_event_list a:hover {
+  color: #c24425;
 }
 
 #header .block .event-date {
@@ -98,7 +123,7 @@ body {
 }
 
 #content .nodeInner {
-  -moz-border-radius: 0;
+  -moz-border-radius: 4px;
 }
 
 
