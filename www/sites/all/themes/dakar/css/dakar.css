@@ -92,7 +92,7 @@ body {
   padding-top: 3em;  
 }
 
-#boxes-box-custom_box_event_list p {
+#boxes-box-custom_box_event_list .vevent {
   background: rgba(255, 255, 51, 0.2);
   border-radius: 4px;
   -moz-border-radius: 4px;
@@ -101,21 +101,22 @@ body {
   width: 277px;
 }
 
-#boxes-box-custom_box_event_list p:hover {
-  -moz-box-shadow: 0px 0px 4px #ddd;
+#boxes-box-custom_box_event_list abbr {
+  border-bottom: none;
 }
 
 #boxes-box-custom_box_event_list a {
+  background: url(../images/mfbullet.gif) no-repeat 0 4px;
   color: #32932d;
-
+  padding-left: 16px;
 }
 
 #boxes-box-custom_box_event_list a:hover {
   color: #c24425;
 }
 
-#header .block .event-date {
-  font-weight: bold;
+#boxes-box-custom_box_event_list .location-wrapper{
+  display: none;
 }
 
 #content {
