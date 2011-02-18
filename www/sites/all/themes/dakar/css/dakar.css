@@ -135,6 +135,11 @@ padding: 0 3px;
 text-transform: uppercase;
 }
 
+#header .block-locale {
+  padding-right: 1.5em;
+  padding-top: 0.8em;
+}
+
 /* --- FORMS / TABS --- */
 #content #colLeft ul.tabs {
   border: none;
