@@ -97,20 +97,27 @@ body {
 #boxes-box-custom_box_event_list .vevent {
   background: rgba(255, 255, 51, 0.2);
   border-radius: 4px;
+  color: #555;
+  font-size: 15px;
+  font-weight: bold;
   -moz-border-radius: 4px;
   margin: 0 0 1em 0;
   padding: 0.5em;
+  text-shadow: 1px 1px #ddd;
+  text-transform: uppercase;
   width: 277px;
 }
 
 #boxes-box-custom_box_event_list abbr {
   border-bottom: none;
+  font-size: 13px;
+  letter-spacing: 0.7px;
 }
 
 #boxes-box-custom_box_event_list a {
-  background: url(../images/mfbullet.gif) no-repeat 0 4px;
+  background: url(../images/mfbullet.gif) no-repeat 2px 5px;
   color: #32932d;
-  padding-left: 16px;
+  padding-left: 18px;
 }
 
 #boxes-box-custom_box_event_list a:hover {
