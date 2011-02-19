@@ -98,7 +98,7 @@ body {
   background: rgba(255, 255, 51, 0.2);
   border-radius: 4px;
   color: #555;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   -moz-border-radius: 4px;
   margin: 0 0 1em 0;
@@ -158,6 +158,13 @@ ul.tabs li {
   padding: 0;
 }
 
+ul.tabs li.active a {
+  background: transparent;
+  border: none;
+  color: #000;
+  font-weight: bold;
+}
+
 ul.tabs li a,
 ul.tabs li a.active
 {
@@ -169,6 +176,7 @@ ul.tabs li a.active
 ul.tabs li a.active {
   font-weight: bold;
 }
+
 
 input.form-text {
   padding: 4px;
