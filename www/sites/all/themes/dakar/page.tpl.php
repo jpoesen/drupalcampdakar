@@ -1,124 +1,146 @@
 <?php
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="<?php print $language->language ?>" xml:lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>">
+// $Id: page.tpl.php,v 1.6 2011/02/18 05:47:53 andregriffin Exp $
+?>
+<!DOCTYPE html>
+<html lang="<?php echo $language->language ?>" dir="<?php echo $language->dir ?>">
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content=""/>
-<meta name="keywords" content=""/>
-
-<?php global $base_url;?>
-<title><?php print $head_title ?></title>
-<?php print $head ?>
-<?php print $styles ?>
-<?php print $scripts ?>
+  <?php print $head ?>
+  <title><?php print $head_title ?></title>
+  <?php print $styles ?>
+  <?php print $scripts ?>
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
 
-<body>
+<body class="<?php print $body_classes; ?>">
 
-  <div id="nav">
-    <div id="navWrapper">
-      
-      <div id="topMenu">
-        <?php if (isset($primary_links)) : ?>
-          <?php print theme('links', $primary_links, array('class' => 'links primary-links')) ?>
+
+  <div id="wrapper" class="clearfix">
+
+    <div id="skip-link">
+      <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
+      <?php if ($primary_links): ?>
+        <a href="#navigation" class="element-invisible element-focusable"><?php print t('Skip to navigation'); ?></a>
+      <?php endif; ?>
+    </div>
+    
+    <header id="header" role="banner" class="clearfix">
+      <?php if ($site_name || $site_slogan): ?>
+        <div id="site-name-slogan">
+          <?php if ($site_name): ?>
+            <?php if ($title): ?>
+              <div id="site-name"><strong>
+                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+              </strong></div>
+            <?php else: /* Use h1 when the content title is empty */ ?>
+              <h1 id="site-name">
+                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+              </h1>
+            <?php endif; ?>
+          <?php endif; ?>
+          <?php if ($site_slogan): ?>
+            <div id="site-slogan"><?php print $site_slogan; ?></div>
+          <?php endif; ?>
+        </div>
+      <?php endif; ?>
+      <?php if ($search_box): ?><?php print $search_box ?><?php endif; ?>
+      <?php print $header; ?>
+    </header> <!-- /#header -->
+
+	  <?php if ($nav): ?>
+	  <div id="nav-wrapper" class="clearfix"><div id="nav">
+	    <?php print $nav; ?>
+	  </div></div>
+	  <?php endif; ?> <!-- /#nav -->
+
+	<?php if ($primary_links || $secondary_links): ?>
+      <nav id="navigation" role="navigation" class="clearfix ">
+        <?php if ($navigation): ?>
+          <?php print $navigation ?>
         <?php endif; ?>
+        <?php if (!$navigation): ?> <!--if block in $navigation region, override $primary_links and $secondary_links-->
+          <?php if (isset($primary_links)) : ?>
+            <?php print theme('links', $primary_links, array('class' => 'links primary-links clearfix')) ?>
+          <?php endif; ?>
+          <?php if (isset($secondary_links)) : ?>
+            <?php print theme('links', $secondary_links, array('class' => 'links secondary-links clearfix')) ?>
+          <?php endif; ?>
+        <?php endif; ?>
+      </nav> <!-- /#navigation -->
+    <?php endif; ?>
 
-        <div id="topSocial">
-            <ul>
-            <li><a class="twitter tip" href="http://twitter.com/drupalcampsn" title="Follow Us on Twitter!"></a></li>
-            <li><a class="facebook" href="#" title="Join Us on Facebook!"></a></li>
-            <li><a class="rss" title="RSS" href="#" title="Subcribe to Our RSS Feed"></a></li>
-            </ul>
-        </div>
+    <section id="main" role="main" class="clearfix">
+      <?php //if (!empty($breadcrumb)): print $breadcrumb; endif; ?>
+      <?php if (!empty($messages)): print $messages; endif; ?>
+      <?php if (!empty($mission)): ?><div id="mission"><?php print $mission; ?></div><?php endif; ?>
+      <a id="main-content"></a>
+      <?php if (!empty($title)): ?><h1 class="title" id="page-title"><?php print $title ?></h1><?php endif; ?>
+      <?php if (!empty($tabs)): ?><div class="tabs-wrapper"><?php print $tabs; ?></div><?php endif; ?>
+      <?php if (!empty($help)): print $help; endif; ?>
+	
+	  <?php if ($content_top): ?>
+	  <div id="content-top" class="clearfix">
+	    <?php print $content_top; ?>
+	  </div>
+	  <?php endif; ?> <!-- /#content-top -->
 
-      </div>
-      
+	  <?php if ($content_side): ?>
+	  <div id="content-side" class="clearfix">
+	    <?php print $content_side; ?>
+	  </div> 
+	  <?php endif; ?> <!-- /#content-side -->
+	
+      <?php print $content; ?>
 
-      
-    </div>
-  </div> <!-- /nav -->
-
-
-
-
-<div id="mainWrapper">
-
-    <!-- Header. -->
-    <div id="wrapper">
-
-    <!-- Header. -->
-    <div id="header">
-      <?php if (isset($header)):?>
-      <?php print $header;?>
-      <?php endif;?>
-    </div><!-- EOF: #header -->
+	  <?php if ($content_bottom): ?>
+	  <div id="content-bottom" class="clearfix">
+	    <?php print $content_bottom; ?>
+	  </div>
+	  <?php endif; ?> <!-- /#content-bottom -->
     
-	<!-- Content. -->
-    <div id="content">
-    
-		<?php if ($is_front) {
-            print $messages;
-            print $tabs;
-            print $content;
-         } else { ?>
-            <div id="colLeft">
-            
-                <?php print $messages;?>
-                <?php print $tabs;?>  
-                <?php print $content;?> 
-                
-            </div><!-- EOF: #main -->
-            
-            <div id="colRight">
-                 
-                <?php print $sidebar;?>
-    
-            </div><!-- EOF: #sidebar -->
-         <?php }  ?>
+</section> <!-- /#main -->
 
-    </div><!-- EOF: #content -->
-    
-</div><!-- EOF: #wrapper -->
-    
-<!-- Footer -->    
-<div id="footer">
-        
-    <div id="footerInner">
-    
-        <div class="blockFooter">
-            <?php print $footer_first; ?>
-        </div>
-        
-        <div class="blockFooter">
-            <?php print $footer_second; ?>
-        </div>
-        
-        <div class="blockFooter">
-            <?php print $footer_third; ?>
-        </div>
-        
-        <div class="blockFooter">
-            <?php print $footer_fourth; ?>
-        </div>
-        
-    <div id="secondary-links">
-        <?php if (isset($secondary_links)) { ?><?php print theme('links', $secondary_links, array('class' =>'secondary-links links')) ?><?php } ?>
-    </div>
-        
-    <div id="footer-message">
-      <!--  <?php print $footer_message ?>
-       Ported to Drupal for the Open Source Community by <a href="http://www.drupalizing.com">Drupalizing</a>, a Project of <a href="http://www.morethanthemes.com">More than Themes</a>
-        <div style="clear:both; display:block;"><a href="http://www.smashingmagazine.com/2010/12/09/journalcrunch-wordpress-3-0-theme-free-theme-for-portfolios-and-magazines/" class="smashing">SmashingMagazine</a><a href="http://www.drupalizing.com" class="drupalizing" title="Drupalizing">Drupalizing</a></div> -->
-    </div>
-    
-    </div>
-    
-    </div>
+    <?php if (!empty($left)): ?>
+      <aside id="sidebar-left" role="complimentary" class="sidebar clearfix">
+        <?php print $left; ?>
+      </aside> <!-- /sidebar-left -->
+    <?php endif; ?>
 
-</div><!-- EOF: #footer -->
+    <?php if (!empty($right)): ?>
+      <aside id="sidebar-right" role="complimentary" class="sidebar clearfix">
+        <?php print $right; ?>
+      </aside> <!-- /sidebar-right -->
+    <?php endif; ?>
 
-</div>
-<?php print $closure; ?>
+    <footer id="footer" role="contentinfo" class="clearfix">
+      <?php //print $footer_message; ?>
+
+	  <?php if ($footer_left): ?>
+	  <div id="footer-left" class="clearfix footer-block">
+	    <?php print $footer_left; ?>
+	  </div>
+	  <?php endif; ?> <!-- /#footer-left -->	
+	
+	  <?php if ($footer_mid): ?>
+	  <div id="footer-mid" class="clearfix footer-block">
+	    <?php print $footer_mid; ?>
+	  </div>
+	  <?php endif; ?> <!-- /#footer-mid -->	
+	
+	  <?php if ($footer_right): ?>
+	  <div id="footer-right" class="clearfix footer-block">
+	    <?php print $footer_right; ?>
+	  </div>
+	  <?php endif; ?> <!-- /#footer-right -->	
+	
+      <?php //print $feed_icons ?>
+    </footer> <!-- /#footer -->
+
+    <?php print $closure ?>
+
+  </div> <!-- /#wrapper -->
+
 </body>
 </html>

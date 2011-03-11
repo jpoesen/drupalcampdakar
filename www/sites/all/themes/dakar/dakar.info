@@ -3,14 +3,19 @@ description = DrupalCamp Dakar theme
 version = "6.x-1.0"
 core = 6.x
 engine = phptemplate
-base theme = journalcrunch
+base theme = framework
 
 stylesheets[all][] = "css/dakar.css"
 
+regions[left] = Left sidebar
+regions[right] = Right sidebar
+regions[nav] = Nav
 regions[header] = Header
+regions[content_top] = Content Top
 regions[content] = Content
-regions[sidebar] = Sidebar
-regions[footer_first] = First Footer Block Area
-regions[footer_second] = Second Footer Block Area
-regions[footer_third] = Third Footer Block Area
-regions[footer_fourth] = Fourth Footer Block Area
+regions[content_side] = Content Side
+regions[content_bottom] = Content Bottom
+regions[navigation] = Navigation
+regions[footer_left] = Footer Left
+regions[footer_mid] = Footer Mid
+regions[footer_right] = Footer Right
