@@ -395,3 +395,36 @@ img#auf-gmap {
   color: #CCC;
   padding-bottom: 1.2em;
 }
+
+#footer .boxes-box {
+  line-height: 1.7em;
+}
+
+#boxes-box-social_links p {
+  margin-bottom: 0;
+}
+
+a#twitter {
+  background: url(/dakar2011/sites/default/files/icons/social/16/twitter.png) no-repeat;
+  padding-left: 22px;
+  padding-bottom: 0.5em;
+}
+
+a#facebook {
+  background: url(/dakar2011/sites/default/files/icons/social/16/facebook.png) no-repeat;
+  padding-left: 22px;
+  padding-bottom: 0.5em;
+}
+
+a#lanyrd {
+  background: url(/dakar2011/sites/default/files/icons/social/16/lanyrd.png) no-repeat;
+  padding-left: 22px;
+  padding-bottom: 0.5em;
+}
+
+a#rss {
+  background: url(/dakar2011/sites/default/files/icons/social/16/rss.png) no-repeat;
+  padding-left: 22px;
+  padding-bottom: 0.5em;
+}
+
