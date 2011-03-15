@@ -13,10 +13,16 @@ function dcamp_block($op = 'list', $delta = 0, $edit = array()) {
 
     case 'list':
       $blocks['dcamp-logo']['info'] = t('[DCAMP] Clickable site logo');
+      $blocks['propose-session']['info'] = t('[DCAMP] Propose session link');
       return $blocks;
 
     case 'view':
       if ($delta == 'dcamp-logo') {
+        $block['subject'] = '<none>';
+        $block['content'] = dcamp_block_get_content($delta);
+      }
+      
+      if ($delta == 'propose-session') {
         $block['subject'] = '<none>';
         $block['content'] = dcamp_block_get_content($delta);
       }
@@ -39,6 +45,18 @@ function dcamp_block_get_content($delta){
       $theme_settings = variable_get("theme_" . $theme_key . "_settings", array());
       $img = theme('image', $theme_settings['logo_path']);
       $output = l($img, '<front>', array('html' => TRUE, 'attributes' => array('id' => 'logo', 'rel' => 'home')));
+      break;
+    case 'propose-session':
+      // Check if user is logged in
+      // if yes, build a link to node/add/session
+      // if not, build link to /user
+      if (user_is_logged_in()) {
+        $link_text = t('Propose a session');
+        $output = l($link_text, 'node/add/session', array('html' => TRUE, 'attributes' => array('class' => 'session-link logged')));
+      } else {
+        $link_text = t('Register or sign in to propose a session');
+        $output = l($link_text, 'user', array('html' => TRUE, 'attributes' => array('class' => 'session-link not-logged')));
+      }
       break;
   }
   return $output;
