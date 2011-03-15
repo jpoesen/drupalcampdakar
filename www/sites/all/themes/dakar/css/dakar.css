@@ -90,7 +90,7 @@ table td li {
 #header {
   height: auto;
   margin: 0;
-  padding-top: 2em;
+  padding-top: 0;
 }
 
 #header #logo {
@@ -103,6 +103,22 @@ table td li {
 
 #header .block {
 
+}
+
+#header #block-dcamp-user-actions {
+  background-color: rgba(80, 137, 209, 0.8);
+}
+
+#header #block-dcamp-user-actions #user-actions {
+  color: #000;
+  float: right;
+  padding: 3px 10px 4px;
+}
+#header #block-dcamp-user-actions #user-actions a {
+  color: #fff;
+}
+#header #block-dcamp-user-actions #user-actions.logged a {
+  padding-right: 10px;
 }
 
 #header .block .content {

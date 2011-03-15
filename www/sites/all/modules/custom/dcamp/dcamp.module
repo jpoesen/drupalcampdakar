@@ -14,6 +14,7 @@ function dcamp_block($op = 'list', $delta = 0, $edit = array()) {
     case 'list':
       $blocks['dcamp-logo']['info'] = t('[DCAMP] Clickable site logo');
       $blocks['propose-session']['info'] = t('[DCAMP] Propose session link');
+      $blocks['user-actions']['info'] = t('[DCAMP] User actions');
       return $blocks;
 
     case 'view':
@@ -23,6 +24,11 @@ function dcamp_block($op = 'list', $delta = 0, $edit = array()) {
       }
       
       if ($delta == 'propose-session') {
+        $block['subject'] = '<none>';
+        $block['content'] = dcamp_block_get_content($delta);
+      }
+      
+      if ($delta == 'user-actions') {
         $block['subject'] = '<none>';
         $block['content'] = dcamp_block_get_content($delta);
       }
@@ -52,10 +58,44 @@ function dcamp_block_get_content($delta){
       // if not, build link to /user
       if (user_is_logged_in()) {
         $link_text = t('Propose a session');
-        $output = l($link_text, 'node/add/session', array('html' => TRUE, 'attributes' => array('class' => 'session-link logged')));
+        $output = l($link_text, 'node/add/session', array('attributes' => array('class' => 'session-link logged')));
       } else {
         $link_text = t('Register or sign in to propose a session');
-        $output = l($link_text, 'user', array('html' => TRUE, 'attributes' => array('class' => 'session-link not-logged')));
+        $output = l($link_text, 'user', array('attributes' => array('class' => 'session-link not-logged')));
+      }
+      break;
+    case 'user-actions':
+      // Check if user is logged in
+      // if yes, build a link to node/add/session, my profile, logout
+      // if not, build link to login register lost password
+      if (user_is_logged_in()) {
+        $propose = t('Propose a session');
+        $account = t('My account');
+        $logout = t('Log out');
+        $output = '<div id ="user-actions" class ="logged">';
+        $output .= l($propose, 'node/add/session', array('attributes' => array('class' => 'session-link')));
+        $output .= l($account, 'user', array('attributes' => array('class' => 'account')));
+        $output .= l($logout, 'logout', array('attributes' => array('class' => 'logout')));
+        $output .= '</div>';
+        
+      } else {
+        $join = t('Join the community');
+        $joinlink = l($join, 'user/register', array('attributes' => array('class' => 'register')));
+        
+        $signin = t('Sign in');
+        $signinlink = l($signin, 'user', array('attributes' => array('class' => 'signin')));
+        
+        $reminder = t('send a reminder');
+        $reminderlink = l($reminder, 'user/password', array('attributes' => array('class' => 'reminder')));
+        
+        $output = '<div id ="user-actions" class ="not-logged">';
+        $output .= t("!join. Already registered? !signin here. Forgot your password? No problem, we'll !reminder.",
+                    array(
+                          '!join' => $joinlink,
+                          '!signin' => $signinlink,
+                          '!reminder' => $reminderlink));
+        $output .= '</div>';
+        
       }
       break;
   }
